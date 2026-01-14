@@ -2,107 +2,201 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>STEPS Technical Appendix</title>
+  <title>STEPS Technical Appendix – India FETP Decision Aid</title>
   <style>
+    /* ====== Global layout and typography – “World Bank style” inspired ====== */
+    :root {
+      --wb-blue-dark: #003366;
+      --wb-blue-mid: #1f4e79;
+      --wb-blue-light: #e5f1fb;
+      --wb-teal: #00796b;
+      --wb-amber: #f9a825;
+      --wb-red: #c62828;
+      --wb-grey-dark: #4a4a4a;
+      --wb-grey-mid: #9e9e9e;
+      --wb-grey-light: #f4f6f8;
+      --wb-border: #d0d4d9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       line-height: 1.6;
-      margin: 2rem auto;
-      max-width: 950px;
-      color: #1b1b1b;
-      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+      color: var(--wb-grey-dark);
+      background-color: #ffffff;
     }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 24px 40px 24px;
+    }
+
     h1, h2, h3, h4 {
-      color: #004a7a;
+      font-weight: 600;
+      color: var(--wb-blue-dark);
       margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
     }
+
     h1 {
-      border-bottom: 3px solid #0077b6;
-      padding-bottom: 0.4rem;
+      font-size: 1.9rem;
+      border-bottom: 3px solid var(--wb-blue-mid);
+      padding-bottom: 0.5rem;
     }
+
     h2 {
-      border-left: 4px solid #00a676;
+      font-size: 1.4rem;
+      border-left: 4px solid var(--wb-teal);
+      padding-left: 0.6rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--wb-blue-mid);
+    }
+
+    h4 {
+      font-size: 1.02rem;
+      color: var(--wb-blue-mid);
+    }
+
+    p {
+      margin: 0.3rem 0 0.8rem 0;
+    }
+
+    ul, ol {
+      margin: 0.2rem 0 0.8rem 1.2rem;
       padding-left: 0.4rem;
     }
-    h3 {
-      margin-top: 1.4rem;
+
+    li {
+      margin-bottom: 0.25rem;
     }
-    p {
-      margin: 0.4rem 0 0.8rem 0;
+
+    a {
+      color: var(--wb-blue-mid);
+      text-decoration: none;
     }
-    .tagline {
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ====== Header and meta ====== */
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .header-left {
+      max-width: 70%;
+    }
+
+    .title-tagline {
+      color: var(--wb-grey-dark);
+      font-size: 0.98rem;
+      margin-top: 0.25rem;
       font-style: italic;
+    }
+
+    .badge-strip {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .badge-primary {
+      background: var(--wb-blue-light);
+      border-color: #c5dbf2;
+      color: var(--wb-blue-dark);
+    }
+
+    .badge-neutral {
+      background: #f0f2f5;
+      border-color: #d7dde5;
       color: #555;
     }
-    .part-label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #0077b6;
+
+    .meta-box {
+      font-size: 0.8rem;
+      color: var(--wb-grey-mid);
+      text-align: right;
     }
+
+    .meta-box div {
+      margin-bottom: 0.1rem;
+    }
+
+    /* ====== Callouts and visual emphasis ====== */
+
     .callout {
-      border-left: 4px solid #f39c12;
-      background: #fffdf5;
-      padding: 0.7rem 0.9rem;
-      margin: 1rem 0;
       border-radius: 4px;
+      padding: 0.75rem 0.9rem;
+      margin: 1rem 0;
+      border: 1px solid var(--wb-border);
+      background: #fdfdfd;
+      display: flex;
+      gap: 0.5rem;
     }
-    .callout.positive {
-      border-left-color: #27ae60;
-      background: #f5fff9;
+
+    .callout-icon {
+      font-size: 1.2rem;
+      margin-right: 0.1rem;
     }
-    .callout.negative {
-      border-left-color: #c0392b;
-      background: #fff5f5;
+
+    .callout-body strong {
+      display: inline-block;
+      margin-bottom: 0.15rem;
     }
+
+    .callout-positive {
+      border-left: 4px solid var(--wb-teal);
+      background: #f3fbf9;
+    }
+
+    .callout-warning {
+      border-left: 4px solid var(--wb-amber);
+      background: #fffaf0;
+    }
+
+    .callout-negative {
+      border-left: 4px solid var(--wb-red);
+      background: #fff6f5;
+    }
+
     .inline-label {
       font-weight: 600;
-      color: #004a7a;
+      color: var(--wb-blue-mid);
     }
-    .step-list {
-      margin: 0.3rem 0 0.8rem 0;
-      padding-left: 1.2rem;
-    }
-    .step-list li {
-      margin-bottom: 0.2rem;
-    }
-    code, .formula {
-      font-family: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-      background: #f0f2f5;
-      padding: 0.05rem 0.25rem;
-      border-radius: 3px;
-      font-size: 0.92em;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-      background: #ffffff;
-    }
-    th, td {
-      border: 1px solid #d0d4d9;
-      padding: 0.4rem 0.5rem;
-      vertical-align: top;
-    }
-    th {
-      background: #f0f4f8;
+
+    .question-heading {
       font-weight: 600;
+      color: var(--wb-blue-dark);
     }
-    .kpi {
-      font-weight: 600;
-      color: #006d3c;
-    }
-    .question {
-      font-weight: 600;
-      color: #004a7a;
-    }
-    .footnote {
-      font-size: 0.85rem;
-      color: #555;
-    }
-    .badge {
+
+    .tag {
       display: inline-block;
       padding: 0.1rem 0.4rem;
       border-radius: 999px;
@@ -111,885 +205,903 @@
       letter-spacing: 0.06em;
       margin-right: 0.4rem;
     }
-    .badge-green {
-      background: #e8f7f0;
-      color: #1e824c;
+
+    .tag-green {
+      background: #e7f4ec;
+      color: #1b5e20;
     }
-    .badge-amber {
-      background: #fff4e0;
-      color: #c87f1f;
+
+    .tag-amber {
+      background: #fff3cd;
+      color: #8a6d3b;
     }
-    .badge-red {
-      background: #ffe9e7;
-      color: #c0392b;
+
+    .tag-red {
+      background: #fdecea;
+      color: #b71c1c;
     }
-    ul {
-      margin-top: 0.2rem;
-      margin-bottom: 0.6rem;
+
+    /* ====== “Guide to this appendix” layout ====== */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      border-radius: 4px;
+      border: 1px solid var(--wb-border);
+      background: #ffffff;
+      padding: 0.8rem 0.9rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--wb-blue-mid);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .card ul {
+      margin-left: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ====== Tables and formulas ====== */
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    th, td {
+      border: 1px solid var(--wb-border);
+      padding: 0.4rem 0.5rem;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--wb-grey-light);
+      font-weight: 600;
+      color: var(--wb-blue-dark);
+    }
+
+    tr:nth-child(even) td {
+      background: #fafbfc;
+    }
+
+    .kpi {
+      font-weight: 600;
+      color: var(--wb-teal);
+    }
+
+    .formula {
+      display: inline-block;
+      font-family: "Consolas", "SF Mono", Menlo, monospace;
+      background: #f4f6f8;
+      padding: 0.12rem 0.3rem;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      margin: 0.1rem 0;
+    }
+
+    .formula-block {
+      display: block;
+      margin: 0.15rem 0;
+    }
+
+    .footnote {
+      font-size: 0.8rem;
+      color: var(--wb-grey-mid);
+      margin-top: 0.3rem;
+    }
+
+    /* ====== Section dividers ====== */
+
+    .section-divider {
+      margin: 2.2rem 0 1.4rem 0;
+      border-top: 1px solid #d9dde2;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--wb-grey-mid);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ====== Responsive tweaks ====== */
+
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .meta-box {
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>STEPS Technical Appendix</h1>
-  <p class="tagline">
-    Companion to the STEPS web tool for Field Epidemiology Training Programme (FETP) scale-up decisions in India.
-  </p>
+  <div class="page">
 
-  <p class="part-label">Part A – For decision-makers and FETP leaders</p>
-  <p class="part-label">Part B – For technical users</p>
+    <div class="header-bar">
+      <div class="header-left">
+        <h1>STEPS Technical Appendix</h1>
+        <div class="title-tagline">
+          Companion to the STEPS web tool for decisions on scaling India’s Field Epidemiology Training Programme (FETP).
+        </div>
+        <div class="badge-strip">
+          <span class="badge badge-primary">Part A – Decision-makers</span>
+          <span class="badge badge-neutral">Part B – Technical users</span>
+        </div>
+      </div>
+      <div class="meta-box">
+        <div><strong>Tool:</strong> STEPS – FETP India Scenario Aid</div>
+        <div><strong>Audience:</strong> NCDC, Ministry of Health, partners</div>
+        <div><strong>Use:</strong> Policy notes · Investment cases · Roadmaps</div>
+      </div>
+    </div>
 
-  <p>
-    This appendix explains, first in plain language and then in technical detail, how each tab in the STEPS decision aid works,
-    how key metrics are calculated, and how to interpret results for India’s FETP scale-up.
-  </p>
+    <div class="callout callout-positive">
+      <div class="callout-icon">★</div>
+      <div class="callout-body">
+        <strong>STEPS in one sentence</strong><br>
+        STEPS turns complex choices about FETP tiers, mentorship, scale and costs into a small set of decision-ready scenarios
+        that show value for money, feasibility and mentor capacity implications in a transparent way.
+      </div>
+    </div>
 
-  <h2>Guide to this appendix</h2>
-  <ul>
-    <li>Part A – What STEPS does and how to read each tab</li>
-    <li>Part A – How the individual tabs work in practice</li>
-    <li>Part A – Three worked example scenarios (Frontline, Intermediate, Advanced)</li>
-    <li>Part A – How STEPS relates to India’s FETP workforce targets</li>
-    <li>Part B – Technical structure, formulas and worked calculations</li>
-    <li>Part B – Step-by-step computations using the three example scenarios</li>
-    <li>References used for assumptions and targets</li>
-  </ul>
+    <h2>Guide to this appendix</h2>
 
-  <h2>1. What problem does STEPS help you solve?</h2>
-  <p>
-    India has already trained roughly <strong>3,300 field epidemiologists</strong> across the Epidemic Intelligence Service (EIS) and FETP streams.
-    The International Health Regulations (IHR, 2005) monitoring framework and the WHO Joint External Evaluation (JEE) use an indicative
-    target of <strong>one trained field epidemiologist per 200,000 people</strong> for workforce development.
-    For a population of about <strong>1.3 billion</strong>, this implies a long-run need for around
-    <strong>6,500 Intermediate or Advanced-level field epidemiologists</strong> in India.<sup>1</sup>
-  </p>
-  <p>
-    The <strong>“One India” FETP roadmap</strong>, launched by NCDC in 2023, sets out a vision to bring all FETP streams under one umbrella and
-    extend field epidemiology coverage to all districts by 2030, using a three-tier cascade from Frontline to Intermediate
-    and Advanced programmes.<sup>2</sup>
-  </p>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">How to use this document</div>
+        <ul>
+          <li><strong>Section 1–3:</strong> Plain-language overview of what STEPS does and how to read each tab.</li>
+          <li><strong>Section 4–5:</strong> Worked examples for three concrete scenarios, plus an illustrative roadmap to India’s 6,500 FETP workforce target.</li>
+          <li><strong>Section 6–7:</strong> Technical formulas and step-by-step computations for analysts and modellers.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">At a glance – what STEPS answers</div>
+        <ul>
+          <li><strong>“If we change mentorship or qualification, how does endorsement change?”</strong></li>
+          <li><strong>“If we double the number of cohorts, what does it mean for mentors, costs, and BCR?”</strong></li>
+          <li><strong>“What portfolio of Frontline, Intermediate and Advanced options gives the best balance of coverage, value and feasibility?”</strong></li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="callout positive">
-    <strong>STEPS in one sentence:</strong>
-    STEPS translates complex training and costing choices into a small set of decision-ready scenarios showing
-    value for money, feasibility and capacity requirements, and the risks if scale-up is too fast or under-resourced.
+    <div class="section-divider"></div>
+    <div class="section-label">Part A – For decision-makers and FETP leaders</div>
+
+    <h2>1. What problem does STEPS help you solve?</h2>
+
+    <p>
+      India has trained around <strong>3,300 field epidemiologists</strong> across the Epidemic Intelligence Service (EIS) and FETP streams.
+      The International Health Regulations (IHR, 2005) and WHO’s Joint External Evaluation use an indicative target of
+      <strong>one trained field epidemiologist per 200,000 people</strong> for workforce development.<sup>1</sup>
+      For a population of about <strong>1.3&nbsp;billion</strong>, this implies a long-run need for roughly
+      <strong>6,500 Intermediate or Advanced-level field epidemiologists</strong> in India.
+    </p>
+    <p>
+      The <strong>“One India” FETP roadmap</strong>, launched by NCDC in 2023, sets out a vision to bring all FETP streams under one umbrella
+      and extend field epidemiology coverage to all districts by 2030, using a three-tier cascade from Frontline to Intermediate and Advanced
+      programmes.<sup>2</sup>
+    </p>
+
+    <div class="callout">
+      <div class="callout-icon">❓</div>
+      <div class="callout-body">
+        <strong>Key question for decision-makers</strong><br>
+        Given budget limits, mentor capacity, and the IHR target, <em>which mix of FETP tiers and scales delivers the biggest health security
+        gains per rupee spent, without overloading mentors or institutions?</em>
+      </div>
+    </div>
+
+    <p>
+      STEPS helps answer that question by combining:
+    </p>
+    <ul>
+      <li>preferences from a discrete-choice experiment (DCE) on what stakeholders value in FETP design;</li>
+      <li>simple, transparent cost and epidemiological benefit calculations; and</li>
+      <li>a clear view of mentor and site capacity constraints.</li>
+    </ul>
+
+    <h2>2. How should I move through the STEPS tabs?</h2>
+
+    <ul>
+      <li>
+        <span class="inline-label">Step&nbsp;1 – Start with the story and the options.</span><br>
+        Use the <strong>Introduction</strong> and <strong>Attributes and levels</strong> tabs to understand what each tier of FETP is for,
+        and what can be adjusted: scale (cohorts and trainees), mentorship intensity, delivery mode, qualification type, and costs.
+      </li>
+      <li>
+        <span class="inline-label">Step&nbsp;2 – Set the rules of the game.</span><br>
+        On the <strong>Settings</strong> tab, set the planning horizon and discount rate, the value placed on outbreak responses,
+        and the number of mentors and sites available. These assumptions shape all results.
+      </li>
+      <li>
+        <span class="inline-label">Step&nbsp;3 – Configure one scenario.</span><br>
+        In the <strong>Configuration</strong> tab, choose a tier, mentorship intensity, delivery mode, qualification type, cohort size,
+        number of cohorts, and monthly cost per trainee. Click <em>Apply configuration</em> to generate a full scenario.
+      </li>
+      <li>
+        <span class="inline-label">Step&nbsp;4 – Read results and feasibility.</span><br>
+        The <strong>Results</strong>, <strong>Costing details</strong> and <strong>National simulation</strong> tabs summarise endorsement,
+        perceived programme value, economic costs, epidemiological benefits, benefit–cost ratios (BCRs) and mentor feasibility.
+      </li>
+      <li>
+        <span class="inline-label">Step&nbsp;5 – Stress-test endorsement and value.</span><br>
+        The <strong>Perceived programme value / Sensitivity</strong> tab shows how endorsement and value move when you change key attributes
+        one at a time – for example, moving from low to high mentorship or from certificate to university qualification.
+      </li>
+      <li>
+        <span class="inline-label">Step&nbsp;6 – Save, compare and export.</span><br>
+        The <strong>Saved scenarios</strong> tab keeps your own scenarios and a separate set of
+        <strong>Top-5 recommended scenarios</strong> generated by the model. The <strong>Copilot briefing</strong> tab then turns these
+        into ready-to-use text and prompts for policy notes, presentations and reports.
+      </li>
+    </ul>
+
+    <h2>3. How does each STEPS tab work in practice?</h2>
+
+    <h3>3.1 Introduction – “What does this tool actually do for me?”</h3>
+    <p>
+      The Introduction tab answers three basic questions:
+    </p>
+    <ul>
+      <li><span class="question-heading">Why invest now?</span> It links FETP scale-up to IHR (2005), JEE findings, and the One India FETP roadmap.</li>
+      <li><span class="question-heading">What can we change?</span> It explains the levers: scale, mentorship, delivery mode, qualification, and costs.</li>
+      <li><span class="question-heading">What does “good” look like?</span> It clarifies that STEPS is not a forecasting tool but a structured way to compare
+        options transparently and consistently.</li>
+    </ul>
+    <p>
+      Colour cues used throughout the tool are introduced here:
+      <span class="tag tag-green">Green</span> for broadly favourable, feasible options;
+      <span class="tag tag-amber">Amber</span> where trade-offs need discussion; and
+      <span class="tag tag-red">Red</span> where cost or capacity is a serious concern.
+    </p>
+
+    <h3>3.2 Attributes and levels – “What levers does the model recognise?”</h3>
+    <p>
+      This tab summarises the key attributes used in the DCE and in the scenario engine:
+    </p>
+    <ul>
+      <li><strong>Programme tier:</strong> Frontline (≈3&nbsp;months), Intermediate (≈12&nbsp;months), Advanced (≈24&nbsp;months).</li>
+      <li><strong>Mentorship intensity:</strong> Low, medium, high – affecting quality and how many trainees each mentor can support.</li>
+      <li><strong>Delivery mode:</strong> Fully in-person or blended – affecting costs and perceived programme value.</li>
+      <li><strong>Qualification:</strong> Certificate vs university qualification – influencing career incentives and recognition.</li>
+      <li><strong>Cohort size and number of cohorts:</strong> Driving scale, costs, and total graduates.</li>
+      <li><strong>Mentor support costs and site capacity:</strong> Underpinning feasibility and mentor shortfalls.</li>
+    </ul>
+    <p>
+      For each attribute, the tab briefly notes how stakeholders responded in the DCE – for example, that higher mentorship and a recognised
+      university qualification typically increased endorsement but at higher cost.
+    </p>
+
+    <h3>3.3 Settings – “Under what assumptions do these numbers hold?”</h3>
+    <p>
+      The Settings tab defines the ground rules:
+    </p>
+    <ul>
+      <li><strong>Planning horizon and discount rate.</strong>
+        The default is 1&nbsp;year and 3%, but you can extend the horizon for multi-year roadmaps.
+        All net present value (NPV) calculations update automatically when you change these inputs.
+      </li>
+      <li><strong>Epidemiological value assumptions.</strong>
+        Defaults specify the completion rate, the expected number of outbreak responses per graduate per year, and the indicative
+        monetary value per averted outbreak (for example, completion 90%, 0.5 outbreak responses per graduate per year,
+        and a nominal value of INR 4,000,000 per significant response). These can be updated when new evidence is available.
+      </li>
+      <li><strong>Capacity and costs.</strong>
+        Here you enter the number of mentors and training sites realistically available, and any base mentor support cost per cohort.
+        These inputs drive the feasibility status and mentor shortfall metrics across the tool.
+      </li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">ℹ</div>
+      <div class="callout-body">
+        <strong>When you change a setting…</strong><br>
+        Every time you apply a new assumption, STEPS logs the change and recomputes value, cost, NPV and feasibility
+        for all active and saved scenarios, as well as for the Top-5 recommended scenarios.
+      </div>
+    </div>
+
+    <h3>3.4 Configuration – “How do I build a scenario?”</h3>
+    <p>
+      The Configuration tab is where you build one policy package at a time by:
+    </p>
+    <ul>
+      <li>choosing a tier (Frontline, Intermediate, Advanced);</li>
+      <li>selecting mentorship intensity, delivery mode and qualification type;</li>
+      <li>setting trainees per cohort and the number of cohorts; and</li>
+      <li>entering monthly cost per trainee and any mentor support cost per cohort.</li>
+    </ul>
+    <p>
+      STEPS applies simple coherence checks so that tier duration, planning horizon and cohorts match logically:
+    </p>
+    <ul>
+      <li><strong>Frontline:</strong> ≈3 months. With a 1-year horizon, up to 4 cohorts are feasible (default capped at 4).</li>
+      <li><strong>Intermediate:</strong> ≈12 months. With a 1-year horizon, one full cohort per site at a time is realistic.</li>
+      <li><strong>Advanced:</strong> ≈24 months. The tool enforces a minimum 2-year horizon and appropriate cohort limits.</li>
+    </ul>
+    <p>
+      After you click <em>Apply configuration</em>, the tool generates:
+    </p>
+    <ul>
+      <li>a qualitative message such as
+        <span class="tag tag-green">Promising configuration</span>,
+        <span class="tag tag-amber">Needs discussion</span> or
+        <span class="tag tag-red">Challenging configuration</span>, based on endorsement, BCR and whether willingness-to-pay (WTP) proxies
+        exceed costs; and
+      </li>
+      <li>mentor and site capacity metrics, including required mentors per cohort, required mentors nationally and mentor shortfall;</li>
+      <li>updated costs, benefits and NPVs used in the Results, Costing, National simulation, and Saved scenarios tabs.</li>
+    </ul>
+
+    <h3>3.5 Results – “How strong is support and is it worth the money?”</h3>
+    <p>
+      The Results tab answers two questions:
+    </p>
+    <ul>
+      <li><span class="question-heading">How much support is there?</span> Endorsement is the predicted share of stakeholders who would support
+        the configuration, based on DCE preference estimates and the selected attribute levels.</li>
+      <li><span class="question-heading">Is it good value for money?</span> Perceived programme value converts preferences into a rupee-equivalent
+        WTP measure, which is compared with economic costs to produce net benefit and BCR.</li>
+    </ul>
+    <p>
+      The tab also shows a short feasibility summary, indicating whether the option is within current mentor and site capacity, the size
+      of any mentor shortfall, and a brief narrative explaining whether low endorsement, high cost, or capacity constraints are the main
+      concern.
+    </p>
+
+    <h3>3.6 Costing details – “Where does the money go?”</h3>
+    <p>
+      The Costing details tab unpacks total economic costs per cohort and nationally into intuitive components such as:
+    </p>
+    <ul>
+      <li>trainee-related costs (e.g. stipends, travel, accommodation where included);</li>
+      <li>mentor support costs, based on per-cohort inputs and the number of mentors implied by mentorship intensity; and</li>
+      <li>institutional or university charges where applicable.</li>
+    </ul>
+    <p>
+      These components sum exactly to the economic cost lines shown in the Results and National simulation tabs, ensuring consistency.
+    </p>
+
+    <h3>3.7 National simulation – “What if we scale this nationally?”</h3>
+    <p>
+      The National simulation tab asks: <em>“If we take this configuration and implement it across India, what happens?”</em>
+      It:
+    </p>
+    <ul>
+      <li>scales costs and benefits to the selected number of cohorts and planning horizon;</li>
+      <li>reports required mentors per cohort, required mentors nationally, available mentors nationally, and mentor shortfalls; and</li>
+      <li>summarises feasibility as <strong>Within capacity</strong> or <strong>Requires capacity expansion</strong>, with a short explanation.</li>
+    </ul>
+
+    <h3>3.8 Perceived programme value / Sensitivity – “Which levers move endorsement?”</h3>
+    <p>
+      This tab is designed for structured “what-if?” questions. It:
+    </p>
+    <ul>
+      <li>shows baseline endorsement and perceived programme value for the current configuration; and</li>
+      <li>then shows how those figures change when you vary specific attributes one at a time, such as moving from low to high mentorship
+        or switching from certificate to university qualification.</li>
+    </ul>
+    <p>
+      Epidemiological benefits are intentionally not shown here so that decision-makers can focus on stakeholder support and perceived value.
+    </p>
+
+    <h3>3.9 Copilot briefing – “How do I turn results into a narrative?”</h3>
+    <p>
+      The Copilot briefing tab automatically builds:
+    </p>
+    <ul>
+      <li>a concise summary of the current configuration;</li>
+      <li>a structured description of all user-saved scenarios; and</li>
+      <li>a separate summary of the <strong>Top-5 recommended scenarios</strong> generated by the model logic (value for money and feasibility),
+        clearly labelled as <strong>Recommended scenarios</strong>.</li>
+    </ul>
+    <p>
+      It then combines these into prompts for Copilot and ChatGPT to generate policy briefs, slide decks or more detailed reports. Buttons
+      copy the prompts to the clipboard, open Copilot or ChatGPT in a new tab, and provide a downloadable text or Word file. If there are
+      no saved scenarios, the pop-up warning appears in red to prevent empty or misleading outputs.
+    </p>
+
+    <h3>3.10 Saved scenarios – “How do I compare options and export?”</h3>
+    <p>
+      The Saved scenarios tab is the control room. It has:
+    </p>
+    <ul>
+      <li><strong>Your saved scenarios:</strong> Each saved configuration appears in a table with endorsement, perceived programme value,
+        economic cost, epidemiological benefits (where used), net benefit, BCR, feasibility status and mentor shortfall.
+        Automatically generated <strong>Enablers</strong> and <strong>Risks</strong> are stored and shown for each scenario and used in exports.</li>
+      <li><strong>Top-5 recommended scenarios:</strong> Independently computed from the model logic and clearly labelled as
+        <em>Recommended scenarios</em>. They never overwrite user-saved scenarios; they sit alongside them.</li>
+    </ul>
+    <p>
+      Export options include:
+    </p>
+    <ul>
+      <li><strong>Standard export:</strong> multi-page PDF or Word summary of all saved scenarios, enablers, risks and capacity implications;</li>
+      <li><strong>Brief export (two pages):</strong> concise PDF or Word note centred on the Top-5 recommendations and any shortlisted user scenarios,
+        with Enablers and Risks boxes auto-filled; and</li>
+      <li><strong>Top-5 export:</strong> PDF, Word or Excel outputs containing only the five model-recommended scenarios for rapid discussion.</li>
+    </ul>
+
+    <div class="section-divider"></div>
+    <div class="section-label">Part A – Worked examples and roadmaps</div>
+
+    <h2>4. Three concrete scenarios in STEPS</h2>
+    <p>
+      The table below uses three illustrative configurations to show how the tool behaves. The numerical values are examples; when you enter
+      these configurations into STEPS, the exact endorsement, value and BCR figures will be generated from the DCE and your chosen settings.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Design choices</th>
+          <th>Programme scale (illustrative)</th>
+          <th>Mentors required (illustrative)</th>
+          <th>Cost implications (illustrative)</th>
+          <th>Policy message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Option 1<br>Frontline – rapid district coverage</strong></td>
+          <td>
+            Tier: Frontline (3 months)<br>
+            Mentorship: Medium<br>
+            Delivery: Fully in-person<br>
+            Qualification: Government and partner certificate<br>
+            Monthly cost per trainee: INR 90,000
+          </td>
+          <td>
+            Example configuration:<br>
+            4 cohorts in 1 year × 35 trainees = <span class="kpi">140 trainees</span> per year per site or network.
+          </td>
+          <td>
+            Medium mentorship ≈ 3.5 trainees per mentor.<br>
+            <span class="formula formula-block">N_cohort = ceil(35 / 3.5) = 10</span>
+            For 4 cohorts:
+            <span class="formula formula-block">N_total = 10 × 4 = 40 mentor slots</span>
+            (the same mentors may support more than one cohort).
+          </td>
+          <td>
+            Direct trainee cost per cohort:<br>
+            <span class="formula formula-block">
+              Cost_trainee, cohort = 35 × 3 × 90,000 = 9,450,000 INR
+            </span>
+            Total trainee cost across 4 cohorts (excluding overheads):<br>
+            <span class="formula formula-block">
+              Cost_total ≈ 37,800,000 INR
+            </span>
+          </td>
+          <td>
+            Strong option for rapid district coverage and basic outbreak response capacity.<br>
+            Does not by itself close the Intermediate/Advanced IHR gap but is well suited as a first phase of expansion,
+            especially in states with limited existing FETP capacity.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Option 2<br>Intermediate – district/state backbone</strong></td>
+          <td>
+            Tier: Intermediate (12 months)<br>
+            Mentorship: Medium<br>
+            Delivery: Fully in-person<br>
+            Qualification: University qualification<br>
+            Monthly cost per trainee: INR 100,000
+          </td>
+          <td>
+            Example configuration:<br>
+            3 cohorts × 35 trainees = <span class="kpi">105 trainees</span> over the planning horizon per institution or network.
+          </td>
+          <td>
+            Medium mentorship ≈ 3.5 trainees per mentor.<br>
+            <span class="formula formula-block">N_cohort = ceil(35 / 3.5) = 10</span>
+            For 3 cohorts:
+            <span class="formula formula-block">N_total = 10 × 3 = 30 mentor slots</span>
+          </td>
+          <td>
+            Direct trainee cost per cohort:<br>
+            <span class="formula formula-block">
+              Cost_trainee, cohort = 35 × 12 × 100,000 = 42,000,000 INR
+            </span>
+            Across 3 cohorts:<br>
+            <span class="formula formula-block">
+              Cost_total ≈ 126,000,000 INR
+            </span>
+          </td>
+          <td>
+            Builds the district and state backbone of field epidemiologists who directly count towards the IHR 1 per 200,000 target.<br>
+            More resource-intensive than Frontline, but essential for medium-term resilience and for supporting Frontline graduates.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Option 3<br>Advanced – national leadership</strong></td>
+          <td>
+            Tier: Advanced (24 months)<br>
+            Mentorship: High<br>
+            Delivery: Fully in-person<br>
+            Qualification: University qualification<br>
+            Monthly cost per trainee: INR 120,000
+          </td>
+          <td>
+            Example configuration:<br>
+            2 cohorts × 25 trainees = <span class="kpi">50 trainees</span> in the pipeline.
+          </td>
+          <td>
+            High mentorship ≈ 2 trainees per mentor.<br>
+            <span class="formula formula-block">N_cohort = ceil(25 / 2) = 13</span>
+            For 2 cohorts:
+            <span class="formula formula-block">N_total = 13 × 2 = 26 mentor slots</span>
+          </td>
+          <td>
+            Direct trainee cost per cohort:<br>
+            <span class="formula formula-block">
+              Cost_trainee, cohort = 25 × 24 × 120,000 = 72,000,000 INR
+            </span>
+            Across 2 cohorts:<br>
+            <span class="formula formula-block">
+              Cost_total ≈ 144,000,000 INR
+            </span>
+          </td>
+          <td>
+            Produces national and multi-state leaders who manage complex outbreaks and system design, and who can mentor Intermediate
+            and Frontline tiers.<br>
+            Cohorts are small but have outsized influence on preparedness and on sustaining quality across the cascade.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-positive">
+      <div class="callout-icon">✔</div>
+      <div class="callout-body">
+        <strong>Take-away for decision-makers</strong><br>
+        Frontline expands coverage quickly at a lower cost per trainee; Intermediate builds the backbone that counts directly towards
+        IHR targets; Advanced is more expensive and mentor-intensive but critical for leadership and for sustaining quality across all tiers.
+        STEPS shows how different mixes of these options perform on value for money and feasibility.
+      </div>
+    </div>
+
+    <h2>5. Moving from 3,300 to 6,500 field epidemiologists</h2>
+
+    <p>
+      The IHR target of one field epidemiologist per 200,000 population implies:
+    </p>
+    <p class="formula formula-block">
+      Required epidemiologists ≈ 1,300,000,000 / 200,000 = 6,500
+    </p>
+    <p>
+      If the current stock is around 3,300 Intermediate/Advanced equivalent epidemiologists, the additional requirement is roughly
+      <strong>3,200 graduates</strong> over the next several years.
+    </p>
+
+    <h3>5.1 Illustrative pathway – focusing on Intermediate and Advanced</h3>
+    <p>
+      As an illustration (not an official plan), suppose that between now and 2030 India runs, across a national network:
+    </p>
+    <ul>
+      <li>10 Intermediate cohorts per year, each with 35 trainees;</li>
+      <li>6 Advanced cohorts per year, each with 25 trainees; and</li>
+      <li>a completion rate of 90% for both tiers.</li>
+    </ul>
+    <p>
+      The annual flow of Intermediate/Advanced graduates would be:
+    </p>
+    <p class="formula formula-block">
+      Graduates per year = 0.9 × (10 × 35 + 6 × 25) = 0.9 × (350 + 150) = 0.9 × 500 = 450
+    </p>
+    <p>
+      Sustained over seven years:
+    </p>
+    <p class="formula formula-block">
+      450 × 7 = 3,150 additional graduates
+    </p>
+    <p>
+      Adding these to the existing ≈3,300 would bring India very close to the 6,500 benchmark. STEPS allows you to refine these numbers
+      under different budget envelopes and mentor capacities.
+    </p>
+
+    <h3>5.2 What does this imply for mentors?</h3>
+    <p>
+      Using the mentorship assumptions above:
+    </p>
+    <ul>
+      <li>Intermediate: <span class="formula">N_cohort = ceil(35 / 3.5) = 10 mentors</span> per cohort.</li>
+      <li>Advanced: <span class="formula">N_cohort = ceil(25 / 2) = 13 mentors</span> per cohort.</li>
+    </ul>
+    <p>
+      With 10 Intermediate and 6 Advanced cohorts per year:
+    </p>
+    <p class="formula formula-block">
+      Mentors required per year (slots) = 10 × 10 + 13 × 6 = 100 + 78 = 178
+    </p>
+    <p>
+      This is a count of “mentor slots”, not unique individuals. Some mentors can support more than one cohort over time. In STEPS you can
+      enter your own estimates of available mentors and immediately see whether a proposed pathway is within capacity or requires targeted
+      mentor development.
+    </p>
+
+    <h3>5.3 Additional portfolio examples</h3>
+    <p>
+      Beyond the three single-tier options, STEPS is designed to compare multi-tier portfolios. For example:
+    </p>
+    <ul>
+      <li><strong>Portfolio A – Frontline-heavy expansion:</strong> multiple Frontline cohorts across states to boost basic surveillance quickly,
+        with a smaller Intermediate stream.</li>
+      <li><strong>Portfolio B – Balanced cascade:</strong> moderate Frontline expansion, strong Intermediate backbone, modest Advanced stream.</li>
+      <li><strong>Portfolio C – Leadership-focused:</strong> prioritised Intermediate and Advanced cohorts to build a leadership cadre first,
+        before large-scale Frontline expansion.</li>
+    </ul>
+    <p>
+      In practice, users construct these portfolios by saving several scenarios in STEPS (Frontline, Intermediate, Advanced)
+      and then using the Saved scenarios and Top-5 panels to compare value for money, feasibility and mentor requirements side-by-side.
+    </p>
+
+    <div class="section-divider"></div>
+    <div class="section-label">Part B – Technical structure and computations</div>
+
+    <h2>6. Core configuration variables</h2>
+
+    <p>
+      For each scenario, STEPS stores the following key variables:
+    </p>
+    <ul>
+      <li>Tier: <span class="formula">g ∈ {frontline, intermediate, advanced}</span>.</li>
+      <li>Programme duration in months: <span class="formula">M_g</span> (3, 12, 24 respectively).</li>
+      <li>Mentorship intensity: <span class="formula">m ∈ {low, medium, high}</span>.</li>
+      <li>Trainees per cohort: <span class="formula">T</span>.</li>
+      <li>Number of cohorts: <span class="formula">C</span>.</li>
+      <li>Monthly cost per trainee: <span class="formula">c_trainee</span>.</li>
+      <li>Mentor support cost per cohort: <span class="formula">c_mentor</span> (may be zero).</li>
+      <li>Available mentors nationally: <span class="formula">A_mentor</span>.</li>
+      <li>Planning horizon in years: <span class="formula">H</span>.</li>
+      <li>Discount rate (annual): <span class="formula">r</span> (default 0.03).</li>
+    </ul>
+
+    <h2>7. Mentor capacity and shortfall</h2>
+
+    <p>
+      Mentorship intensity is mapped to an implied number of trainees per mentor using a simple rule:
+    </p>
+    <p class="formula formula-block">
+      f(m) = 2 if m = high; 3.5 if m = medium; 5 if m = low
+    </p>
+    <p>
+      Required mentors per cohort are:
+    </p>
+    <p class="formula formula-block">
+      N_cohort = ceil( T / f(m) )
+    </p>
+    <p>
+      The total mentor requirement (ignoring detailed scheduling) is:
+    </p>
+    <p class="formula formula-block">
+      N_total = N_cohort × C
+    </p>
+    <p>
+      Given available mentors <span class="formula">A_mentor</span>, the mentor shortfall is:
+    </p>
+    <p class="formula formula-block">
+      Shortfall = max( 0, N_total − A_mentor )
+    </p>
+
+    <h3>Worked example – Option 1 (Frontline)</h3>
+    <p>
+      With medium mentorship (<span class="formula">f(m) = 3.5</span>), <span class="formula">T = 35</span> and <span class="formula">C = 4</span>:
+    </p>
+    <p class="formula formula-block">
+      N_cohort = ceil(35 / 3.5) = ceil(10) = 10
+    </p>
+    <p class="formula formula-block">
+      N_total = 10 × 4 = 40
+    </p>
+    <p>
+      If <span class="formula">A_mentor = 200</span>, then
+      <span class="formula">Shortfall = max(0, 40 − 200) = 0</span>, so the configuration is within mentor capacity.
+    </p>
+
+    <h2>8. Economic costs</h2>
+
+    <p>
+      Ignoring additional sub-components, the core cost definitions are:
+    </p>
+    <p><strong>Direct trainee cost per cohort:</strong></p>
+    <p class="formula formula-block">
+      Cost_trainee, cohort = T × M_g × c_trainee
+    </p>
+    <p><strong>Mentor support cost per cohort:</strong></p>
+    <p class="formula formula-block">
+      Cost_mentor, cohort = c_mentor
+    </p>
+    <p><strong>Total cost per cohort:</strong></p>
+    <p class="formula formula-block">
+      Cost_cohort = Cost_trainee, cohort + Cost_mentor, cohort + overheads
+    </p>
+    <p>
+      where “overheads” captures any institutional or university-level charges that are specified in the input templates.
+    </p>
+    <p><strong>Total cost across cohorts:</strong></p>
+    <p class="formula formula-block">
+      Cost_total = C × Cost_cohort
+    </p>
+
+    <h3>Worked example – Option 2 (Intermediate)</h3>
+    <p>
+      With <span class="formula">T = 35</span>, <span class="formula">M_g = 12</span>, <span class="formula">c_trainee = 100,000</span> and <span class="formula">C = 3</span>:
+    </p>
+    <p class="formula formula-block">
+      Cost_trainee, cohort = 35 × 12 × 100,000 = 42,000,000 INR
+    </p>
+    <p class="formula formula-block">
+      Cost_total (trainee component only) = 3 × 42,000,000 = 126,000,000 INR
+    </p>
+    <p>
+      Mentor support costs and overheads are then added to obtain total economic cost.
+    </p>
+
+    <h2>9. Epidemiological benefits and NPV</h2>
+
+    <p>
+      For each tier g, epidemiological parameters include:
+    </p>
+    <ul>
+      <li>Completion rate: <span class="formula">pi_g</span> (e.g. 0.9).</li>
+      <li>Outbreak responses per graduate per year: <span class="formula">lambda_g</span> (e.g. 0.5).</li>
+      <li>Value per outbreak response: <span class="formula">v_out,g</span> (e.g. 4,000,000&nbsp;INR).</li>
+      <li>Additional value per graduate (if used): <span class="formula">v_grad,g</span> (default 0).</li>
+    </ul>
+
+    <p><strong>Graduates per cohort:</strong></p>
+    <p class="formula formula-block">
+      G_cohort = pi_g × T
+    </p>
+    <p><strong>Total graduates:</strong></p>
+    <p class="formula formula-block">
+      G_total = G_cohort × C
+    </p>
+    <p><strong>Outbreak responses per year (one cohort):</strong></p>
+    <p class="formula formula-block">
+      Outbreaks_per_year, cohort = G_cohort × lambda_g
+    </p>
+    <p><strong>Annual outbreak benefit per cohort:</strong></p>
+    <p class="formula formula-block">
+      B_out, annual = Outbreaks_per_year, cohort × v_out,g
+    </p>
+    <p><strong>Present value factor over H years at rate r:</strong></p>
+    <p class="formula formula-block">
+      PV_factor = sum over t = 1 to H of [ 1 / (1 + r)^t ]
+    </p>
+    <p><strong>PV of outbreak benefits per cohort:</strong></p>
+    <p class="formula formula-block">
+      B_out, PV, cohort = B_out, annual × PV_factor
+    </p>
+    <p><strong>PV of graduate benefits per cohort (if used):</strong></p>
+    <p class="formula formula-block">
+      B_grad, PV, cohort = G_cohort × v_grad,g
+    </p>
+    <p><strong>Total epidemiological benefit per cohort (with cross-sector multiplier k):</strong></p>
+    <p class="formula formula-block">
+      B_epi, cohort = k × ( B_out, PV, cohort + B_grad, PV, cohort )
+    </p>
+    <p>
+      Multiplying by <span class="formula">C</span> gives the total epidemiological benefit for the scenario.
+    </p>
+
+    <h3>Worked example – Option 3 (Advanced)</h3>
+    <p>
+      For illustration: <span class="formula">T = 25</span>, <span class="formula">pi_advanced = 0.9</span>,
+      <span class="formula">lambda_advanced = 0.5</span>, <span class="formula">v_out, advanced = 4,000,000</span>,
+      <span class="formula">H = 5</span>, <span class="formula">r = 0.03</span>.
+    </p>
+    <p class="formula formula-block">
+      G_cohort = 0.9 × 25 = 22.5
+    </p>
+    <p class="formula formula-block">
+      Outbreaks_per_year, cohort = 22.5 × 0.5 = 11.25
+    </p>
+    <p class="formula formula-block">
+      B_out, annual = 11.25 × 4,000,000 = 45,000,000 INR
+    </p>
+    <p class="formula formula-block">
+      PV_factor (5 years, 3%) ≈ 4.58
+    </p>
+    <p class="formula formula-block">
+      B_out, PV, cohort ≈ 45,000,000 × 4.58 ≈ 206,100,000 INR
+    </p>
+
+    <h2>10. Perceived programme value and endorsement (DCE)</h2>
+
+    <p>
+      The DCE estimates preference weights <span class="formula">beta_k</span> for attribute levels <span class="formula">x_k</span>.
+      For a given configuration, a utility index is:
+    </p>
+    <p class="formula formula-block">
+      U = beta_0 + Σ_k ( beta_k × x_k )
+    </p>
+    <p>
+      Endorsement is modelled as a logistic transformation of the difference between this utility and a reference option
+      with utility <span class="formula">U_ref</span>:
+    </p>
+    <p class="formula formula-block">
+      Endorsement = 1 / ( 1 + exp( − ( U − U_ref ) ) )
+    </p>
+    <p>
+      Perceived programme value is obtained by dividing all <span class="formula">beta</span> coefficients by a cost coefficient
+      <span class="formula">beta_cost</span> to convert utilities into rupee-equivalent WTP. This WTP is then scaled by cohort size and number
+      of cohorts to produce an indicative monetary value that can be compared with economic costs.
+    </p>
+
+    <h2>11. Net benefit and benefit–cost ratio</h2>
+
+    <p>
+      STEPS reports net benefit and BCR in two ways:
+    </p>
+    <ul>
+      <li>using perceived programme value (WTP-based); and</li>
+      <li>using epidemiological benefits (outbreak and graduate values).</li>
+    </ul>
+    <p>
+      For any definition of benefit <span class="formula">B</span> and cost <span class="formula">C</span>:
+    </p>
+    <p class="formula formula-block">
+      Net benefit = B − C
+    </p>
+    <p class="formula formula-block">
+      BCR = B / C
+    </p>
+    <p>
+      These metrics are calculated at cohort level and at “national” level given the number of cohorts and the planning horizon.
+    </p>
+
+    <div class="section-divider"></div>
+    <div class="section-label">References</div>
+
+    <h2>12. References for targets and concepts</h2>
+
+    <p class="footnote">
+      1. Williams SG, Fontaine RE, Turcios Ruiz RM, Walke H, Ijaz K, Baggett HC.
+      One Field Epidemiologist per 200,000 Population: Lessons Learned from Implementing a Global Public Health Workforce Target.
+      <em>Health Security</em>. 2020;18(S1):S113–S118. doi:10.1089/hs.2019.0119.
+    </p>
+    <p class="footnote">
+      2. National Centre for Disease Control (NCDC). <em>Teaching &amp; Training – One India FETP Roadmap</em>.
+      Ministry of Health and Family Welfare, Government of India. Launched February 2023.
+    </p>
+    <p class="footnote">
+      3. Jones DS, D’Errico M, Resnikoff O, et al. Building Global Epidemiology and Response Capacity with Field Epidemiology Training Programs.
+      <em>Emerging Infectious Diseases</em>. 2017;23(Suppl 1):S158–S165.
+    </p>
+    <p class="footnote">
+      4. Martin R, Fall IS. Field Epidemiology Training Programs to accelerate public health workforce development and global health security.
+      <em>International Journal of Infectious Diseases</em>. 2021;103:423–429.
+    </p>
+    <p class="footnote">
+      Numerical examples for India’s current number of field epidemiologists and specific cohort plans are based on working assumptions
+      within the STEPS tool and programme reports shared by NCDC and partners, not on a single published source.
+      They are intended to illustrate how STEPS can be used and do not represent an official Government of India position.
+    </p>
+
   </div>
-
-  <h2>2. How should I move through the STEPS tabs?</h2>
-
-  <ul class="step-list">
-    <li><span class="inline-label">Step 1 → Start with the story and options.</span>
-      Use the <strong>Introduction</strong> and <strong>Attributes and levels</strong> tabs to remind yourself what each tier of FETP does,
-      what levers you can change (mentorship, delivery mode, qualification, scale), and how these affect stakeholder support and costs.
-    </li>
-    <li><span class="inline-label">Step 2 → Set the rules of the game.</span>
-      On the <strong>Settings</strong> tab you set the assumptions: planning horizon, discount rate, available mentors and sites,
-      and how much value you attach to outbreak responses and to graduates. These inputs change all tabs downstream.
-    </li>
-    <li><span class="inline-label">Step 3 → Configure one scenario.</span>
-      The <strong>Configuration</strong> tab is where you choose a tier (Frontline, Intermediate, Advanced), mentorship intensity,
-      delivery mode, qualification type, cohort size, number of cohorts and monthly costs. Clicking
-      <em>Apply configuration</em> generates a full scenario.
-    </li>
-    <li><span class="inline-label">Step 4 → Read the results and feasibility.</span>
-      The <strong>Results</strong>, <strong>Costing details</strong> and <strong>National simulation</strong> tabs summarise endorsement,
-      perceived programme value, costs, epidemiological benefits, benefit–cost ratios (BCRs), and whether mentor and site capacity is adequate.
-    </li>
-    <li><span class="inline-label">Step 5 → Stress-test endorsement and value.</span>
-      The <strong>Perceived programme value / Sensitivity</strong> tab shows how endorsement and perceived value change when you tweak key attributes.
-      It is built from discrete-choice experiment (DCE) results and lets you see which levers matter most.
-    </li>
-    <li><span class="inline-label">Step 6 → Save and export scenarios.</span>
-      The <strong>Saved scenarios</strong> tab keeps a table of your own scenarios and the model-generated <strong>Top-5 recommended scenarios</strong>.
-      The <strong>Copilot briefing</strong> tab generates policy-ready prompts and text for reports, and the export buttons produce meeting-ready
-      PDF/Word/Excel summaries.
-    </li>
-  </ul>
-
-  <h2>3. How does each STEPS tab work in practice?</h2>
-
-  <h3>3.1 Introduction tab – What questions does STEPS answer for me?</h3>
-  <p>
-    The Introduction tab answers three high-level questions for senior officials:
-  </p>
-  <ul>
-    <li><span class="question">Why invest now?</span>
-      It links FETP scale-up to India’s commitments under IHR (2005), the One India FETP roadmap and health security priorities.
-    </li>
-    <li><span class="question">What can we change?</span>
-      It summarises the main levers you can adjust: scale (cohorts and trainees), mentorship intensity, delivery mode,
-      qualification type and cost.
-    </li>
-    <li><span class="question">What does “good” look like?</span>
-      It explains that STEPS does not predict the future, but organises evidence so you can compare packages of options transparently.
-    </li>
-  </ul>
-  <p>
-    The colour cues used in later tabs are introduced here:
-    <span class="badge badge-green">Green</span> for broadly favourable, feasible options;
-    <span class="badge badge-amber">Amber</span> where trade-offs need discussion; and
-    <span class="badge badge-red">Red</span> where cost or capacity is a serious concern.
-  </p>
-
-  <h3>3.2 Attributes and levels – What levers does the model recognise?</h3>
-  <p>
-    This tab explains, in plain language, each attribute used in the DCE and in the scenario engine:
-  </p>
-  <ul>
-    <li><strong>Programme tier</strong> (Frontline, Intermediate, Advanced) with indicative duration: 3, 12 and 24 months respectively.</li>
-    <li><strong>Mentorship intensity</strong> (low, medium, high), which drives both quality and the number of trainees each mentor can support.</li>
-    <li><strong>Delivery mode</strong> (fully in-person, blended), affecting costs and perceived value.</li>
-    <li><strong>Qualification</strong> (certificate vs university qualification), influencing career incentives.</li>
-    <li><strong>Cohort size and number of cohorts</strong>, driving scale, costs and graduates.</li>
-    <li><strong>Mentor support costs and site capacity</strong>, which underpin feasibility.</li>
-  </ul>
-  <p>
-    For each attribute, the tab briefly notes how stakeholders in the DCE responded – for example, that higher mentorship and recognised
-    university qualifications generally increased endorsement, but at higher cost.
-  </p>
-
-  <h3>3.3 Settings tab – What assumptions sit behind the numbers?</h3>
-  <p>
-    The Settings tab answers: <em>“Under what economic and capacity assumptions do these scenarios hold?”</em> It is divided into:
-  </p>
-  <ul>
-    <li><strong>Planning horizon and discount rate.</strong>
-      By default, the horizon is set to 1 year and the discount rate to 3%.
-      You can extend the horizon if you are planning a multi-year roadmap, and all net present value (NPV) calculations update automatically.
-    </li>
-    <li><strong>Epidemiological value assumptions.</strong>
-      Defaults specify the completion rate, expected number of outbreak responses per graduate per year,
-      and the indicative monetary value of averted outbreaks (for example, completion 90%, 0.5 outbreak responses per graduate per year,
-      and an indicative value of INR 4,000,000 per significant outbreak response). These are user-adjustable.
-    </li>
-    <li><strong>Capacity and costs.</strong>
-      You specify how many mentors and training sites are realistically available nationally, and any base mentor support cost per cohort.
-      These inputs drive the feasibility classification in the capacity panels and the mentor shortfall metrics.
-    </li>
-  </ul>
-
-  <div class="callout">
-    <strong>What happens when you change an assumption?</strong><br>
-    Every time you change a setting and apply it, STEPS records this in the session log and recomputes the value, cost, NPV and feasibility
-    metrics for all active and saved scenarios, and for the Top-5 recommended scenarios.
-  </div>
-
-  <h3>3.4 Configuration tab – How do I build a scenario?</h3>
-  <p>
-    The Configuration tab is where you design one “policy package” at a time. You:
-  </p>
-  <ul>
-    <li>Choose a programme tier: Frontline, Intermediate, or Advanced.</li>
-    <li>Select mentorship intensity, delivery mode and qualification type.</li>
-    <li>Set trainees per cohort and number of cohorts.</li>
-    <li>Enter monthly cost per trainee and any mentor support cost per cohort.</li>
-  </ul>
-  <p>
-    STEPS applies simple logic checks so that the planning horizon, tier duration and number of cohorts remain coherent. For example:
-  </p>
-  <ul>
-    <li><strong>Frontline</strong> has a 3-month duration. With a 1-year horizon, up to 4 cohorts are feasible; the default cohorts value reflects this.</li>
-    <li><strong>Intermediate</strong> has a 12-month duration. With a 1-year horizon, you can only run one full cohort per site at a time.</li>
-    <li><strong>Advanced</strong> has a 24-month duration. Choosing this tier prompts a minimum 2-year horizon and constrains the minimum number of cohorts.
-    </li>
-  </ul>
-  <p>
-    After you click <em>Apply configuration</em>, the tool generates:
-  </p>
-  <ul>
-    <li>A qualitative message such as
-      <span class="badge badge-green">Promising configuration</span>,
-      <span class="badge badge-amber">Needs discussion</span> or
-      <span class="badge badge-red">Challenging configuration</span>,
-      based on endorsement, BCR and whether willingness-to-pay (WTP) proxies exceed costs.
-    </li>
-    <li>Mentor and site capacity metrics (required mentors per cohort, required mentors nationally, mentor shortfall).</li>
-    <li>Updated costs, benefits and NPVs used throughout the rest of the tool.</li>
-  </ul>
-
-  <h3>3.5 Results tab – What do “endorsement” and “value” mean?</h3>
-  <p>
-    The Results tab answers two core questions:
-  </p>
-  <ul>
-    <li><span class="question">How much support is there for this configuration?</span>
-      Endorsement is the predicted share of stakeholders who would support the option, based on the DCE preference estimates
-      and your selected attribute levels.
-    </li>
-    <li><span class="question">Is the option good value for money?</span>
-      Perceived programme value converts stakeholder preferences into an equivalent monetary value using a WTP scale.
-      This is compared with economic costs to compute net benefit and BCR.
-    </li>
-  </ul>
-  <p>
-    The tab also provides a short feasibility summary for each scenario, showing:
-  </p>
-  <ul>
-    <li>whether the option is within mentor and site capacity or requires capacity expansion;</li>
-    <li>mentor shortfall in absolute numbers; and</li>
-    <li>a short narrative linking cost, value and feasibility (for example, “Less support and WTP below cost” versus
-      “Strong value but requires substantial mentor expansion”).</li>
-  </ul>
-
-  <h3>3.6 Costing details tab – Where does the money go?</h3>
-  <p>
-    The Costing details tab disaggregates the total economic cost per cohort and nationally into logical components, such as:
-  </p>
-  <ul>
-    <li>trainee-related costs (stipends, travel, accommodation where included in the input data);</li>
-    <li>mentor support costs based on the per-cohort input and the number of mentors per cohort implied by mentorship intensity;</li>
-    <li>institutional or university fees, if relevant for degree-granting variants.</li>
-  </ul>
-  <p>
-    These items sum to the economic cost lines shown in the Results and National simulation tabs, ensuring that figures are internally consistent.
-  </p>
-
-  <h3>3.7 National simulation tab – How does this scale nationally?</h3>
-  <p>
-    Once you are comfortable with one scenario, the National simulation tab helps you ask:
-    <em>“What happens if we run this across India?”</em> It:
-  </p>
-  <ul>
-    <li>scales costs and benefits to the selected number of cohorts and planning horizon;</li>
-    <li>reports required mentors per cohort, required mentors nationally, available mentors nationally (from the Settings tab),
-      and the resulting mentor shortfall; and</li>
-    <li>summarises feasibility as <strong>Within capacity</strong> or <strong>Requires capacity expansion</strong>, with a short explanation.</li>
-  </ul>
-
-  <h3>3.8 Perceived programme value / Sensitivity tab – Which levers move endorsement?</h3>
-  <p>
-    This tab answers: <em>“If we change one feature of the programme, how does support change?”</em>
-  </p>
-  <ul>
-    <li>It shows the baseline endorsement and perceived programme value for the current configuration.</li>
-    <li>It then shows how those numbers change when you vary key attributes (for example, moving from low to high mentorship
-      or from certificate to university qualification), holding other factors constant.</li>
-    <li>Epidemiological benefits are intentionally not shown in this sensitivity table, so that you can focus on stakeholder support
-      and perceived value.</li>
-  </ul>
-
-  <h3>3.9 Copilot briefing tab – How do I turn results into a narrative?</h3>
-  <p>
-    Senior policymakers often ask for slide decks, short briefs or talking points. The Copilot briefing tab automates much of this by generating:
-  </p>
-  <ul>
-    <li>a concise, plain-language summary of the current configuration;</li>
-    <li>a structured description of your saved scenarios, including which ones are shortlisted;</li>
-    <li>a separate summary of the <strong>Top-5 recommended scenarios</strong> generated by the model logic (value for money and feasibility),
-      clearly labelled as Recommended scenarios; and</li>
-    <li>ready-to-use prompts for Copilot and ChatGPT that combine these scenario descriptions with clear instructions for generating
-      policy briefs, slide packs or more detailed reports.</li>
-  </ul>
-  <p>
-    When you click the buttons:
-  </p>
-  <ul>
-    <li><strong>Copy prompt for Copilot / ChatGPT</strong> – the tailored prompt, including scenario summaries and Top-5 recommendations,
-      is copied to your clipboard and a green confirmation popup appears.</li>
-    <li><strong>Download prompts</strong> – saves a simple text or Word file containing the same prompts.</li>
-    <li><strong>Open Copilot and copy</strong> or <strong>Open ChatGPT and copy</strong> – opens the relevant service in a new browser tab
-      and keeps the prompt on your clipboard so that you can paste it directly.</li>
-  </ul>
-  <p>
-    If no scenario has been saved, the popup appears in red, explaining that at least one scenario is needed before prompts can be generated.
-    This prevents empty or uninformative reports.
-  </p>
-
-  <h3>3.10 Saved scenarios tab – How do I compare and export?</h3>
-  <p>
-    The Saved scenarios tab is the “control room” for decision-making. It has two main components:
-  </p>
-  <ul>
-    <li><strong>Your saved scenarios.</strong>
-      Every time you save a configuration, it appears in the table with endorsement, perceived programme value, economic cost,
-      epidemiological benefits (where relevant), net benefit, BCR, feasibility status and mentor shortfall.
-      For each scenario, the tool stores automatically generated <strong>Enablers</strong> and <strong>Risks</strong>, which are also used in exports
-      and in the Copilot prompts.
-    </li>
-    <li><strong>Top-5 recommended scenarios.</strong>
-      These are computed independently from the model logic and labelled as Recommended scenarios.
-      They do not replace or overwrite your saved scenarios; they sit alongside them to guide discussions.
-    </li>
-  </ul>
-  <p>
-    Export options include:
-  </p>
-  <ul>
-    <li><strong>Standard export</strong> – a multi-page PDF or Word document summarising all saved scenarios, enablers, risks and capacity implications.</li>
-    <li><strong>Brief export (two pages)</strong> – a concise PDF or Word summary focused on the Top-5 recommended scenarios and any shortlisted user scenarios,
-      including an Enablers box and a Risks box auto-filled from the tool.</li>
-    <li><strong>Top-5 export</strong> – PDF, Word or Excel exports that contain only the five recommended scenarios for rapid discussion.</li>
-  </ul>
-
-  <h2>4. How do three concrete scenarios look in STEPS?</h2>
-  <p>
-    To make the mechanics tangible, the table below uses three illustrative configurations. For simplicity, we assume a cohort size of 35 trainees
-    for Frontline and Intermediate and 25 for Advanced. The actual endorsement, value and BCR figures are generated automatically inside STEPS
-    once you enter the same configurations.
-  </p>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Scenario</th>
-        <th>Key design choices</th>
-        <th>Programme scale (illustrative)</th>
-        <th>Mentors required (illustrative)</th>
-        <th>Cost implications (illustrative)</th>
-        <th>High-level policy message</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Option 1<br>Frontline – rapid district coverage</strong></td>
-        <td>
-          Tier: Frontline (3 months)<br>
-          Mentorship: Medium<br>
-          Delivery: Fully in-person<br>
-          Qualification: Government and partner certificate<br>
-          Monthly cost per trainee: INR 90,000
-        </td>
-        <td>
-          Example configuration:<br>
-          4 cohorts in 1 year × 35 trainees = <span class="kpi">140 trainees</span> trained annually per site or network.
-        </td>
-        <td>
-          Medium mentorship implies about 3.5 fellows per mentor.<br>
-          Required mentors per cohort:<br>
-          <span class="formula">N_cohort = ceil(35 / 3.5) = 10</span>.<br>
-          For 4 cohorts, this implies 40 mentor slots across the year (the same individuals may mentor multiple cohorts).
-        </td>
-        <td>
-          Direct trainee cost per cohort:<br>
-          <span class="formula">Cost_trainee, cohort = 35 × 3 × 90,000 = 9,450,000 INR</span>.<br>
-          Total annual cost depends on the number of sites and cohorts you implement.
-        </td>
-        <td>
-          Rapidly strengthens district-level surveillance and response.<br>
-          Does not, on its own, close the Intermediate/Advanced IHR workforce gap, but substantially improves detection and frontline outbreak control.
-        </td>
-      </tr>
-      <tr>
-        <td><strong>Option 2<br>Intermediate – district/state backbone</strong></td>
-        <td>
-          Tier: Intermediate (12 months)<br>
-          Mentorship: Medium<br>
-          Delivery: Fully in-person<br>
-          Qualification: University qualification<br>
-          Monthly cost per trainee: INR 100,000
-        </td>
-        <td>
-          Example configuration:<br>
-          3 cohorts × 35 trainees = <span class="kpi">105 trainees</span> over a rolling programme.
-        </td>
-        <td>
-          Medium mentorship implies 3.5 fellows per mentor.<br>
-          Required mentors per cohort:<br>
-          <span class="formula">N_cohort = ceil(35 / 3.5) = 10</span>.<br>
-          With 3 cohorts, this implies about 30 mentor slots across the planning horizon.
-        </td>
-        <td>
-          Direct trainee cost per cohort:<br>
-          <span class="formula">Cost_trainee, cohort = 35 × 12 × 100,000 = 42,000,000 INR</span>.<br>
-          Total trainee cost across 3 cohorts:<br>
-          <span class="formula">Cost_total ≈ 126,000,000 INR</span> (before mentor support and institutional costs).
-        </td>
-        <td>
-          Produces Intermediate-level field epidemiologists who count directly towards the IHR 1 per 200,000 target.<br>
-          Resource-intensive but central to district and state backbone capacity.
-        </td>
-      </tr>
-      <tr>
-        <td><strong>Option 3<br>Advanced – national leadership</strong></td>
-        <td>
-          Tier: Advanced (24 months)<br>
-          Mentorship: High<br>
-          Delivery: Fully in-person<br>
-          Qualification: University qualification<br>
-          Monthly cost per trainee: INR 120,000
-        </td>
-        <td>
-          Example configuration:<br>
-          2 cohorts × 25 trainees = <span class="kpi">50 trainees</span>.
-        </td>
-        <td>
-          High mentorship implies about 2 fellows per mentor.<br>
-          Required mentors per cohort:<br>
-          <span class="formula">N_cohort = ceil(25 / 2) = 13</span>.<br>
-          With 2 cohorts, this implies about 26 mentor slots per programme cycle.
-        </td>
-        <td>
-          Direct trainee cost per cohort:<br>
-          <span class="formula">Cost_trainee, cohort = 25 × 24 × 120,000 = 72,000,000 INR</span>.<br>
-          Across 2 cohorts: <span class="formula">Cost_total ≈ 144,000,000 INR</span> (before mentor support and overheads).
-        </td>
-        <td>
-          Focuses on national and multi-state leadership, complex outbreak management and system design.<br>
-          Even modest cohort sizes can have outsized effects on strategic preparedness and mentoring capacity for other tiers.
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="callout positive">
-    <strong>Key take-away for policymakers:</strong>
-    The three options illustrate a basic trade-off: Frontline FETP expands coverage quickly at lower cost per trainee but does not close
-    the IHR Intermediate/Advanced gap; Intermediate builds the district and state backbone; Advanced is more expensive and mentor-intensive
-    but essential for high-level leadership and for sustaining quality across the cascade. STEPS helps you adjust cohort sizes,
-    numbers and mentorship intensities within each of these options to see which portfolio gives the best balance of coverage,
-    value for money and feasibility.
-  </div>
-
-  <h2>5. How can India move from 3,300 to 6,500 field epidemiologists?</h2>
-  <p>
-    Using the IHR target of 1 field epidemiologist per 200,000 population and a population of 1.3 billion,
-    India’s long-run need is approximately:
-  </p>
-  <p class="formula">
-    Required Intermediate/Advanced epidemiologists = 1,300,000,000 / 200,000 = 6,500
-  </p>
-  <p>
-    If we treat 3,300 as the current stock of Intermediate and Advanced-equivalent epidemiologists, the additional requirement is around
-    <strong>3,200 graduates</strong> over the next several years.
-  </p>
-
-  <h3>5.1 An illustrative multi-year pathway</h3>
-  <p>
-    As an illustration, suppose that between now and 2030 India runs, across a national network of accredited institutions:
-  </p>
-  <ul>
-    <li>10 Intermediate cohorts per year, each with 35 trainees;</li>
-    <li>6 Advanced cohorts per year, each with 25 trainees;</li>
-    <li>a completion rate of 90% for both tiers.</li>
-  </ul>
-  <p>
-    The resulting annual flow of Intermediate/Advanced graduates would be:
-  </p>
-  <p class="formula">
-    Graduates per year = 0.9 × (10 × 35 + 6 × 25) = 0.9 × (350 + 150) = 0.9 × 500 = 450 graduates per year
-  </p>
-  <p>
-    Sustained over seven years, this yields approximately:
-  </p>
-  <p class="formula">
-    450 × 7 = 3,150 additional Intermediate/Advanced-level graduates
-  </p>
-  <p>
-    Adding these to the existing stock of about 3,300 would bring India close to the 6,500 benchmark.
-    The exact configuration can be adjusted inside STEPS to align with budget envelopes, mentor availability and institutional capacity.
-  </p>
-
-  <h3>5.2 What does this imply for mentors?</h3>
-  <p>
-    If Intermediate uses medium mentorship and Advanced uses high mentorship, then:
-  </p>
-  <ul>
-    <li>Intermediate mentors per cohort: <span class="formula">N_cohort = ceil(35 / 3.5) = 10</span>.</li>
-    <li>Advanced mentors per cohort: <span class="formula">N_cohort = ceil(25 / 2) = 13</span>.</li>
-  </ul>
-  <p>
-    With 10 Intermediate and 6 Advanced cohorts per year, the implied mentor slots per year are:
-  </p>
-  <p class="formula">
-    Mentors required per year (slots) = 10 × 10 + 13 × 6 = 100 + 78 = 178
-  </p>
-  <p>
-    This simple calculation does not yet account for mentors supporting multiple cohorts or for staggered schedules across institutions.
-    STEPS uses the same mentor-per-cohort logic but allows you to specify the available mentor pool and quickly see whether the proposed
-    scale-up is within capacity or requires deliberate mentor development.
-  </p>
-
-  <div class="callout">
-    <strong>Using STEPS to test the roadmap:</strong>
-    In practice, you can set the Intermediate and Advanced configurations in STEPS to match any proposed roadmap, enter realistic mentor
-    and site numbers in the Settings tab, and then use the National simulation and Saved scenarios tabs to see whether the pathway
-    is affordable, feasible and aligned with endorsement patterns from the preference study.
-  </div>
-
-  <h2>6. How is STEPS structured for technical users?</h2>
-  <p>
-    Part B sets out the main calculations underpinning the tool. The notation is kept simple to make it easy to translate into
-    other software if needed.
-  </p>
-
-  <h3>6.1 Core configuration variables</h3>
-  <p>
-    For each scenario, STEPS stores the following key variables:
-  </p>
-  <ul>
-    <li>Tier <span class="formula">g</span> in {frontline, intermediate, advanced}.</li>
-    <li>Programme duration in months <span class="formula">M_g</span> (3, 12, 24 respectively).</li>
-    <li>Mentorship intensity <span class="formula">m</span> in {low, medium, high}.</li>
-    <li>Trainees per cohort <span class="formula">T</span>.</li>
-    <li>Number of cohorts <span class="formula">C</span>.</li>
-    <li>Monthly cost per trainee <span class="formula">c_trainee</span>.</li>
-    <li>Mentor support cost per cohort <span class="formula">c_mentor</span> (optional, can be zero).</li>
-    <li>Available mentors nationally <span class="formula">A_mentor</span>.</li>
-    <li>Planning horizon in years <span class="formula">H</span>.</li>
-    <li>Discount rate <span class="formula">r</span> (default 0.03 per year).</li>
-  </ul>
-
-  <h3>6.2 Mentor capacity and shortfall</h3>
-  <p>
-    The tool maps mentorship intensity to an implied number of trainees per mentor, using a simple function f(m):
-  </p>
-  <p class="formula">
-    f(m) = 2 if m = high; 3.5 if m = medium; 5 if m = low.
-  </p>
-  <p>
-    Given <span class="formula">T</span> trainees per cohort, the required mentors per cohort <span class="formula">N_cohort</span> is:
-  </p>
-  <p class="formula">
-    N_cohort = ceil( T / f(m) )
-  </p>
-  <p>
-    The total mentor requirement for the scenario (ignoring detailed timing overlap) is:
-  </p>
-  <p class="formula">
-    N_total = N_cohort × C
-  </p>
-  <p>
-    and the implied mentor shortfall is:
-  </p>
-  <p class="formula">
-    Shortfall = max( 0, N_total − A_mentor )
-  </p>
-  <p>
-    These quantities feed into the feasibility status and the capacity summaries shown in the National simulation and Results tabs.
-  </p>
-
-  <h3>6.3 Economic costs</h3>
-  <p>
-    Ignoring more detailed cost components, the basic building blocks are:
-  </p>
-  <p>
-    <strong>Direct trainee cost per cohort:</strong>
-  </p>
-  <p class="formula">
-    Cost_trainee, cohort = T × M_g × c_trainee
-  </p>
-  <p>
-    <strong>Mentor support cost per cohort:</strong>
-  </p>
-  <p class="formula">
-    Cost_mentor, cohort = c_mentor
-  </p>
-  <p>
-    <strong>Total cost per cohort:</strong>
-  </p>
-  <p class="formula">
-    Cost_cohort = Cost_trainee, cohort + Cost_mentor, cohort + overheads
-  </p>
-  <p>
-    where "overheads" include institutional or university-level costs if they are specified in the input templates.
-  </p>
-  <p>
-    <strong>Total cost across cohorts:</strong>
-  </p>
-  <p class="formula">
-    Cost_total = C × Cost_cohort
-  </p>
-  <p>
-    In the actual STEPS implementation, these costs are further split into sub-components for reporting, but the core logic is the same.
-  </p>
-
-  <h3>6.4 Epidemiological benefits and net present value</h3>
-  <p>
-    For each tier g, the epidemiological settings specify:
-  </p>
-  <ul>
-    <li>Completion rate <span class="formula">pi_g</span> (for example 0.9).</li>
-    <li>Expected outbreak responses per graduate per year <span class="formula">lambda_g</span> (for example 0.5).</li>
-    <li>Indicative value per outbreak response <span class="formula">v_out,g</span> (for example INR 4,000,000).</li>
-    <li>Any additional value per graduate <span class="formula">v_grad,g</span> (default 0 unless specified).</li>
-  </ul>
-  <p>
-    The effective number of graduates per cohort is:
-  </p>
-  <p class="formula">
-    G_cohort = pi_g × T
-  </p>
-  <p>
-    With C cohorts, the total graduates are:
-  </p>
-  <p class="formula">
-    G_total = G_cohort × C
-  </p>
-  <p>
-    The expected number of outbreak responses per year from one cohort is:
-  </p>
-  <p class="formula">
-    Outbreaks_per_year, cohort = G_cohort × lambda_g
-  </p>
-  <p>
-    The annual outbreak benefit per cohort (in nominal terms) is:
-  </p>
-  <p class="formula">
-    B_out, annual = Outbreaks_per_year, cohort × v_out,g
-  </p>
-  <p>
-    If benefits are treated as a constant stream over H years with discount rate r, the present value factor is:
-  </p>
-  <p class="formula">
-    PV_factor = sum over t = 1 to H of [ 1 / (1 + r)^t ]
-  </p>
-  <p>
-    The present value of outbreak benefits per cohort is then:
-  </p>
-  <p class="formula">
-    B_out, PV, cohort = B_out, annual × PV_factor
-  </p>
-  <p>
-    If there is an additional per-graduate benefit v_grad,g, the present value of graduate benefits per cohort is:
-  </p>
-  <p class="formula">
-    B_grad, PV, cohort = G_cohort × v_grad,g
-  </p>
-  <p>
-    The tool also allows an optional cross-sector multiplier k (for example to reflect One Health co-benefits), trimmed to a plausible range
-    such as 0.8 to 2.0. The epidemiological benefit for the cohort is:
-  </p>
-  <p class="formula">
-    B_epi, cohort = k × ( B_out, PV, cohort + B_grad, PV, cohort )
-  </p>
-  <p>
-    Multiplying by the number of cohorts gives the total epidemiological benefit for the scenario.
-  </p>
-
-  <h3>6.5 Perceived programme value and endorsement from the DCE</h3>
-  <p>
-    The DCE underpinning STEPS estimates preference weights beta_k for each attribute level x_k. For a given configuration,
-    a utility index is computed as:
-  </p>
-  <p class="formula">
-    U = beta_0 + sum over k of ( beta_k × x_k )
-  </p>
-  <p>
-    Endorsement is then modelled as a logistic transformation of this utility relative to a reference option with utility U_ref:
-  </p>
-  <p class="formula">
-    Endorsement = 1 / ( 1 + exp( − (U − U_ref) ) )
-  </p>
-  <p>
-    Perceived programme value is obtained by dividing all beta_k and beta_0 by a cost coefficient beta_cost to convert utilities
-    into rupee-equivalent WTP. This WTP is then scaled by the number of trainees and cohorts to express it as an indicative monetary value
-    comparable to economic costs.
-  </p>
-
-  <h3>6.6 Net benefit and benefit–cost ratio</h3>
-  <p>
-    STEPS reports net benefit and BCR in two main ways:
-  </p>
-  <ul>
-    <li>using perceived programme value as a WTP-based monetary benefit proxy; and</li>
-    <li>using epidemiological benefits from the outbreak and graduate calculations where these are specified.</li>
-  </ul>
-  <p>
-    For a given definition of benefit B and total economic cost C, the key indicators are:
-  </p>
-  <p class="formula">
-    Net benefit = B − C
-  </p>
-  <p class="formula">
-    BCR = B / C
-  </p>
-  <p>
-    These metrics are computed at the cohort level and at the national level for the selected number of cohorts and horizon.
-  </p>
-
-  <h2>7. Worked calculations for the three example scenarios</h2>
-  <p>
-    This section walks through the basic computations for the three options introduced in Part A, focusing on quantities that do not depend
-    on the detailed DCE coefficients.
-  </p>
-
-  <h3>7.1 Option 1 – Frontline, medium mentorship, certificate, fully in-person, INR 90,000/month</h3>
-  <p><strong>Assumptions:</strong></p>
-  <ul>
-    <li>Tier: Frontline (M_frontline = 3 months).</li>
-    <li>Mentorship: medium (f(m) = 3.5 trainees per mentor).</li>
-    <li>Trainees per cohort: T = 35.</li>
-    <li>Number of cohorts: C = 4 within a 1-year horizon.</li>
-    <li>Monthly cost per trainee: c_trainee = 90,000 INR.</li>
-    <li>Mentor support cost per cohort: c_mentor = 0 (for illustration).</li>
-    <li>Available mentors nationally: A_mentor = 200 (illustrative input).</li>
-  </ul>
-  <p><strong>Calculations:</strong></p>
-  <p class="formula">
-    N_cohort = ceil(35 / 3.5) = 10 mentors per cohort
-  </p>
-  <p class="formula">
-    N_total = 10 × 4 = 40 mentor slots
-  </p>
-  <p class="formula">
-    Shortfall = max(0, 40 − 200) = 0
-  </p>
-  <p>
-    Direct trainee cost per cohort:
-  </p>
-  <p class="formula">
-    Cost_trainee, cohort = 35 × 3 × 90,000 = 9,450,000 INR
-  </p>
-  <p>
-    Total cost across 4 cohorts (ignoring overheads):
-  </p>
-  <p class="formula">
-    Cost_total = 4 × 9,450,000 = 37,800,000 INR
-  </p>
-  <p>
-    In STEPS, these calculations inform the cost and capacity panels, while endorsement and perceived value panels use the DCE coefficients
-    to determine whether the configuration is broadly attractive to stakeholders.
-  </p>
-
-  <h3>7.2 Option 2 – Intermediate, medium mentorship, university qualification, fully in-person, INR 100,000/month</h3>
-  <p><strong>Assumptions:</strong></p>
-  <ul>
-    <li>Tier: Intermediate (M_intermediate = 12 months).</li>
-    <li>Mentorship: medium (f(m) = 3.5 trainees per mentor).</li>
-    <li>Trainees per cohort: T = 35.</li>
-    <li>Number of cohorts: C = 3 across the planning horizon.</li>
-    <li>Monthly cost per trainee: c_trainee = 100,000 INR.</li>
-    <li>Mentor support cost per cohort: c_mentor = 0 (for illustration).</li>
-    <li>Completion rate: pi_intermediate = 0.9.</li>
-    <li>Outbreak responses per graduate per year: lambda_intermediate = 0.5.</li>
-    <li>Value per outbreak response: v_out, intermediate = 4,000,000 INR.</li>
-    <li>Planning horizon: H = 5 years (NPV illustration).</li>
-    <li>Discount rate: r = 0.03.</li>
-  </ul>
-  <p><strong>Calculations:</strong></p>
-  <p class="formula">
-    N_cohort = ceil(35 / 3.5) = 10 mentors per cohort
-  </p>
-  <p class="formula">
-    N_total = 10 × 3 = 30 mentor slots
-  </p>
-  <p class="formula">
-    Cost_trainee, cohort = 35 × 12 × 100,000 = 42,000,000 INR
-  </p>
-  <p class="formula">
-    Cost_total = 3 × 42,000,000 = 126,000,000 INR
-  </p>
-  <p>
-    Graduates per cohort:
-  </p>
-  <p class="formula">
-    G_cohort = 0.9 × 35 = 31.5
-  </p>
-  <p>
-    Outbreak responses per year per cohort:
-  </p>
-  <p class="formula">
-    Outbreaks_per_year, cohort = 31.5 × 0.5 = 15.75
-  </p>
-  <p>
-    Annual outbreak benefit per cohort:
-  </p>
-  <p class="formula">
-    B_out, annual = 15.75 × 4,000,000 = 63,000,000 INR
-  </p>
-  <p>
-    Present value factor over 5 years at 3% (approximate):
-  </p>
-  <p class="formula">
-    PV_factor ≈ 4.58
-  </p>
-  <p>
-    Outbreak PV per cohort (without cross-sector multiplier):
-  </p>
-  <p class="formula">
-    B_out, PV, cohort ≈ 63,000,000 × 4.58 ≈ 288,540,000 INR
-  </p>
-  <p>
-    In STEPS, this is combined with any specified graduate-specific value and cross-sector multipliers, and then compared
-    with the total economic cost to compute net benefit and BCR.
-  </p>
-
-  <h3>7.3 Option 3 – Advanced, high mentorship, university qualification, fully in-person, INR 120,000/month</h3>
-  <p><strong>Assumptions:</strong></p>
-  <ul>
-    <li>Tier: Advanced (M_advanced = 24 months).</li>
-    <li>Mentorship: high (f(m) = 2 trainees per mentor).</li>
-    <li>Trainees per cohort: T = 25.</li>
-    <li>Number of cohorts: C = 2.</li>
-    <li>Monthly cost per trainee: c_trainee = 120,000 INR.</li>
-    <li>Mentor support cost per cohort: c_mentor = 0 (for illustration).</li>
-    <li>Completion rate: pi_advanced = 0.9.</li>
-    <li>Outbreak responses per graduate per year: lambda_advanced = 0.5.</li>
-    <li>Value per outbreak response: v_out, advanced = 4,000,000 INR.</li>
-    <li>Planning horizon: H = 5 years from the point where a steady state of graduates is reached.</li>
-    <li>Discount rate: r = 0.03.</li>
-  </ul>
-  <p><strong>Calculations:</strong></p>
-  <p class="formula">
-    N_cohort = ceil(25 / 2) = 13 mentors per cohort
-  </p>
-  <p class="formula">
-    N_total = 13 × 2 = 26 mentor slots
-  </p>
-  <p class="formula">
-    Cost_trainee, cohort = 25 × 24 × 120,000 = 72,000,000 INR
-  </p>
-  <p class="formula">
-    Cost_total = 2 × 72,000,000 = 144,000,000 INR
-  </p>
-  <p>
-    Graduates per cohort:
-  </p>
-  <p class="formula">
-    G_cohort = 0.9 × 25 = 22.5
-  </p>
-  <p>
-    Outbreak responses per year per cohort:
-  </p>
-  <p class="formula">
-    Outbreaks_per_year, cohort = 22.5 × 0.5 = 11.25
-  </p>
-  <p>
-    Annual outbreak benefit per cohort:
-  </p>
-  <p class="formula">
-    B_out, annual = 11.25 × 4,000,000 = 45,000,000 INR
-  </p>
-  <p>
-    Outbreak PV per cohort over 5 years at 3%:
-  </p>
-  <p class="formula">
-    B_out, PV, cohort ≈ 45,000,000 × 4.58 ≈ 206,100,000 INR
-  </p>
-  <p>
-    These figures show why Advanced training is costly but can still be highly cost-effective when targeted appropriately,
-    especially once additional leadership and system-strengthening benefits are taken into account.
-  </p>
-
-  <div class="callout">
-    <strong>Using new evidence in STEPS:</strong>
-    If new empirical evidence emerges on completion rates, outbreak response frequency or monetary values,
-    these parameters can be updated directly in the Settings tab. The tool will then recalculate all NPVs, net benefits
-    and BCRs without changing the underlying DCE preference structure.
-  </div>
-
-  <h2>8. References for targets and concepts</h2>
-  <p class="footnote">
-    1. Williams SG, Fontaine RE, Turcios Ruiz RM, Walke H, Ijaz K, Baggett HC. One Field Epidemiologist per 200,000 Population:
-       Lessons Learned from Implementing a Global Public Health Workforce Target. <em>Health Security</em>. 2020;18(S1):S113–S118.
-       doi:10.1089/hs.2019.0119.
-  </p>
-  <p class="footnote">
-    2. National Centre for Disease Control (NCDC). <em>Teaching & Training – One India FETP Roadmap</em>. Ministry of Health and
-       Family Welfare, Government of India. Launched February 2023.
-  </p>
-  <p class="footnote">
-    3. Jones DS, D’Errico M, Resnikoff O, et al. Building Global Epidemiology and Response Capacity with Field Epidemiology Training Programs.
-       <em>Emerging Infectious Diseases</em>. 2017;23(Suppl 1):S158–S165.
-  </p>
-  <p class="footnote">
-    4. Martin R, Fall IS. Field Epidemiology Training Programs to accelerate public health workforce development and global health security.
-       <em>International Journal of Infectious Diseases</em>. 2021;103:423–429.
-  </p>
-  <p class="footnote">
-    Numerical examples for India’s current number of field epidemiologists and specific cohort plans are based on working assumptions within
-    the STEPS tool and programme reports shared by NCDC and partners, not on a single published source.
-    They are intended to illustrate how STEPS can be used, rather than to state an official Government of India position.
-  </p>
-
 </body>
 </html>
